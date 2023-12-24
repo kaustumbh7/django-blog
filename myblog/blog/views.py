@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-
+from rest_framework import generics
+from .serializers import UserSerializer, BlogPostSerializer
 
 # Create your views here.
 @login_required(login_url="/login")
@@ -109,3 +110,11 @@ def register_page(request):
 def logout_user(request):
     logout(request)
     return redirect('/login/')
+
+class BlogPostList(generics.ListAPIView):
+    queryset = BlogPost.objects.all()
+    serializer_class = BlogPostSerializer
+
+class BlogPostDetail(generics.RetrieveAPIView):
+    queryset =  BlogPost.objects.all()
+    serializer_class = BlogPostSerializer
