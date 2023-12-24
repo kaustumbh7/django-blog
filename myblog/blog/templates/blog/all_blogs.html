@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'blog/base.html' %}
+{% block content %}
+              <!-- Main jumbotron for a primary marketing message or call to action -->
+              <div class="jumbotron">
+                <div class="container">
+                  <h1 class="display-3">Blog Page</h1>
+                  <p>This blog page showcases some amazing blogs.</p>
+                  <p><a class="btn btn-primary btn-lg" href="create/" role="button">Create</a></p>
+                </div>
+              </div>
+        
+              <div class="container">
+                <!-- Example row of columns -->
+                <div class="row">
+                    {% for blog in blogs%}
+                        <div class="col-md-4 mb-5">
+                            <h2>{{blog.heading|slice:50}}...</h2>
+                            <p>{{blog.body|slice:100}}... </p>
+                            <p><a class="btn btn-secondary" href="blog/{{blog.id}}" role="button">View details »</a></p>
+                        </div>
+                    {% endfor %}
+                  
+                </div>
+                <p><a class="btn btn-danger btn-md" href="logout/" role="button">Logout</a></p>
+                <hr>
+              </div> <!-- /container -->
+{% endblock%}

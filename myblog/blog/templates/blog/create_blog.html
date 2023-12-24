@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <form class="col-6 mx-auto card p-3 shadow-lg mt-5" method="post" enctype = "multipart/form-data">
+        {% csrf_token %}
+        <h2>Create Blog</h2>
+        <div class="mb-3">
+            <label class="form-label" for="exampleFormControlInput1">Heading</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="heading" required ></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="exampleFormControlInput1">Body</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="body" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlFile1" class="form-label">Upload Blog Image</label>
+            <input type="file" class="form-control" id="exampleFormControlFile1" name="image">
+          </div>
+        <button type="submit" class="btn btn-success mt-2">Add Blog</button>
+      </form>
+    </div>
+{% endblock %}

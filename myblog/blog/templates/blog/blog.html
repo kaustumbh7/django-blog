@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% block content%}
+    <div class="card mb-3">
+        <img src="/media/{{blog.image}}" class="card-img-top" style="height:300px" alt="...">
+        <div class="card-body">
+            <a class="btn btn-success" href="edit/{{blog.id}}" role="button">Edit</a>
+            <a class="btn btn-danger" href="delete/{{blog.id}}" role="button">Delete</a>
+            <h5 class="card-title mt-3">{{blog.heading}}</h5>
+            <p class="card-text">{{blog.body}}</p>
+        </div>
+    </div>
+{% endblock%}
